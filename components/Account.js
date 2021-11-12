@@ -1,6 +1,6 @@
 import EthName from './EthName'
 
-const Account = function ({account}) {
+const Account = function ({accounts, isLoggedIn, connect}) {
   // TODO!!!
   // if already logged in, it should show 
   // the EthName component with the correct address
@@ -8,9 +8,16 @@ const Account = function ({account}) {
   // that when its clicked, will prompt us to login
   // and store the info on the page
 
-  return (
-    <button>Connect wallet</button>
-  )
+  if(isLoggedIn) {
+    return (
+      <span>{accounts[0]}</span>
+    )
+  } else {
+    return (
+      <button onClick={connect}>Connect wallet</button>
+    )
+  }
+  
 }
 
 export default Account;
