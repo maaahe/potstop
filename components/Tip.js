@@ -25,13 +25,14 @@ const Tip = function ({isLoggedIn, accounts, address}) {
 
   if (accounts[0] === address) {
     return (
-      <></>
+      <button disabled={true}>This is you</button>
+    )
+  } else {
+    return (
+      <button disabled={!isLoggedIn} onClick={send}>Tip 0.01 ETH</button>
     )
   }
 
-  return (
-    <button disabled={!isLoggedIn} onClick={send}>Tip 0.01 ETH</button>
-  )
 }
 
 export default Tip

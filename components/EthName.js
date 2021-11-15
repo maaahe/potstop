@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
 import { web3 } from '../lib/web3';
 
-const EnsName = function () {
+const EnsName = function ({address}) {
   // TODO!
   // get the address from outside
   // format it
   // check for ENS domain
   // get image if it has one
   // make jazzicon if not
+
+  let formattedAddress = address.substr(0, 5) + "..." + address.substr(-4)
 
   return (
     <div className="eth-name">
@@ -17,7 +19,7 @@ const EnsName = function () {
 
       <div className="name">
         <span className="primary">
-          {/* ENS name if one here */}
+          {formattedAddress}
         </span>
         <span className="secondary">
           {/* formatted address here */}

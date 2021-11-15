@@ -106,8 +106,8 @@ export default function Home() {
           <div className="eth-name">
             <img src="https://ipfs.io/ipfs/QmbctVN8tPaDLiLysVDwThf7JTJhMejbSypZ4a3v5H2G3a" alt="Avatar of riklomas.eth" />
             <div className="name">
-              <span className="primary">riklomas.eth</span>
-              <span className="secondary">0xb25bf3...aaf4</span>
+              <span className="primary">maaahe.eth</span>
+              <span className="secondary">0xb25...aaf4</span>
             </div>
           </div>
           {/* end EthName */}

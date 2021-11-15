@@ -10,7 +10,7 @@ const Account = function ({accounts, isLoggedIn, connect}) {
 
   if(isLoggedIn) {
     return (
-      <span>{accounts[0]}</span>
+      <EthName address={accounts[0]}/>
     )
   } else {
     return (
