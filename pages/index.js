@@ -106,7 +106,7 @@ export default function Home() {
           <div className="eth-name">
             <img src="https://ipfs.io/ipfs/QmbctVN8tPaDLiLysVDwThf7JTJhMejbSypZ4a3v5H2G3a" alt="Avatar of riklomas.eth" />
             <div className="name">
-              <span className="primary">maaahe.eth</span>
+              <span className="primary">rl.eth</span>
               <span className="secondary">0xb25...aaf4</span>
             </div>
           </div>
@@ -117,6 +117,7 @@ export default function Home() {
 
       <section className="answers">
         {answersArea}
+        <AnswerForm accounts={accounts} setAnswers={setAnswers} isLoggedIn={isLoggedIn}/>
       </section>
 
       <Head>

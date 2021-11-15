@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {web3} from "../lib/web3"
 
 const AnswerForm = function ({ accounts, setAnswers, isLoggedIn }) {
   const [message, setMessage] = useState("")
@@ -6,38 +7,39 @@ const AnswerForm = function ({ accounts, setAnswers, isLoggedIn }) {
   const post = async function (event) {
     event.preventDefault()
     
-    setAnswers(current => {
-      return [...current, {
-        reply: message,
-        account: "0xb25bf3990c5a274a758a2a3a4cc90b3e407eaaf4"
-      }]
-    })
+    const confirmationMessage = "This message is to verify that you're the person posting this."
 
-    setMessage("")
+    const signedMessage = await  web3.eth.personal.sign(confirmationMessage, accounts[0])
 
     // TODO!
     // send the message state to the /api/answers
     // but we need to verify who we say we are!
     // we don't want people pretending it's us!
 
-    // const data = { 
-    //   questionId: 1,
-    //   reply: _____, 
-    //   account: _____,
-    //   confirmationMessage: _____,
-    //   signedMessage: _____
-    // }
+    const data = { 
+      questionId: 1,
+      reply: message, 
+      account: accounts[0],
+      confirmationMessage: confirmationMessage,
+      signedMessage: signedMessage
+    }
 
-    // fetch("/api/answers", { 
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // })
-    // .then(response => response.json())
-    // .then(data => { })
-    // .catch(error => {
-    //  console.error(error)
-    // })
+    fetch("/api/answers", { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => { 
+      setAnswers(current => {
+        return [...current, data]
+      })
+  
+      setMessage("")
+    })
+    .catch(error => {
+     console.error(error)
+    })
   }
 
   return (
