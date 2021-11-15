@@ -55,7 +55,7 @@ export default function handler(req, res) {
     // if fetched normally using fetch()
     const data = [
       { questionId: 1, answerId: 1, reply: answers[0], account: "0xDf7C7f491f26D35fCca74F6Fbd6b5FE437cc24C7" },
-      { questionId: 1, answerId: 2, reply: answers[1], account: "0xb25bf3990c5a274a758a2a3a4cc90b3e407eaaf4" },
+      { questionId: 1, answerId: 2, reply: answers[1], account: "0x9e08a541f304e98ef6935ab6f4313c7369cf19c0" },
       { questionId: 1, answerId: 3, reply: answers[2], account: "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65" }
     ]
   
